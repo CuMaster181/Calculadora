@@ -8,7 +8,7 @@ namespace CalculadoraPOO
         {
             var calc = new Calculadora();
             var historial = new Historial();
-            string respuesta;
+            string respuesta = ""; // Inicializada para evitar CS0165
 
             do
             {
@@ -83,20 +83,12 @@ namespace CalculadoraPOO
 
                 Console.WriteLine("\n¿Desea realizar otra operación? (s/n)");
                 respuesta = Console.ReadLine()?.ToLower();
-                if (respuesta.ToLower() == "s")
-                {
-                    Main(args);
-                }
-                else if (respuesta.ToLower() == "n")
-                {
-                    Console.WriteLine("¡Hasta luego!");
-                }
-                else
-                {
-                    Console.WriteLine("Respuesta no válida. Saliendo del programa.");
-                }
 
-            }
+            } 
+            while (respuesta == "s");
+
+            Console.WriteLine("¡Hasta luego!");
+            Console.ReadKey();
         }
     }
 }
